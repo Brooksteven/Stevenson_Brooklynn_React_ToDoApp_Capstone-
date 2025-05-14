@@ -1,5 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage/HomePage';
+import MainPage from './pages/MainPage/MainPage';
+import EditItemPage from './pages/EditItemPage/EditItemPage';
+import CreateItemPage from './pages/CreateItemPage/CreateItemPage';
 
 
 export default function App() {
@@ -7,7 +10,10 @@ export default function App() {
     <>
       <Routes>
         {/* here is where we make our individual routes */}
-        <Route path='/' element={<HomePage />}/>
+        <Route path='/' element={<MainPage />}/>
+        <Route path='/home' element={<HomePage />}/>
+        <Route path='/edit/:id' element={<EditItemPage />}/>
+        <Route path='/new' element={<CreateItemPage />}/>
       </Routes>
     </>
   )

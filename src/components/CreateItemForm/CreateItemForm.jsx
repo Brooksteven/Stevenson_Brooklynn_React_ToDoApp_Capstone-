@@ -1,11 +1,16 @@
 import { useState } from 'react'
-import { getItems } from '../../utilities/items-api';
+import { getItems, createItem } from '../../utilities/items-api';
+
+// import { CreateItemForm } from '../../utilities/items-api';
 
 export default function CreateItemForm({ setItems }) {
     const [formData, setFormData] = useState({
         title: '',
         body: ''
     })
+
+   
+
 
   function handleChange(e) {
     setFormData({
@@ -18,20 +23,24 @@ export default function CreateItemForm({ setItems }) {
  async function handleSubmit(e) {
     //this stops the page from refreshing/reloading once the form is submitted
     e.preventDefault();
-    try {
-        const response = await fetch('http://localhost:3000/items', {
-            method: "POST",
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(formData)
-        });
-        const data = await response.json();
-        const items = await getItems()
-        setItems(items)
-        console.log(data)
-    } catch (error) {
-        console.error(error)
-    }
+    //here is where the new data is getting created
+    // try {
+    //     const response = await fetch('http://localhost:3000/items', {
+    //         method: "POST",
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify(formData)
+    //     });
+    //     // here we are getting the data and then updating state so the new information we put in will render and update state. to do this we have to update our state by using setItems
+    //     const data = await response.json();
+    //     const items = await getItems()
+    //     setItems(items)
+    //     console.log(data)
+    // } catch (error) {
+    //     console.error(error)
+    // }
+    createItem(setItems, formData)
   }
+
 
   return (
     <form onSubmit={handleSubmit}>
@@ -41,3 +50,6 @@ export default function CreateItemForm({ setItems }) {
     </form>
   );
 }
+
+
+//needs to be on the CreateItemFormPage/ Page 2

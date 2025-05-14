@@ -16,6 +16,9 @@ export default function Navbar() {
             <li className='nav-item'>
                 <Link to='/edit/${id}'>Edit Kiazen</Link>
             </li>
+            <li className='nav-item'>
+                <Link to='/new'>Add Kiazen</Link>
+            </li>
         </ul>
     </nav>
   )

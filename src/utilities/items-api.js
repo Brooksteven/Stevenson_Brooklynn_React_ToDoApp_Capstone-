@@ -30,9 +30,9 @@ export async function getItems(){
   export async function editItem(id, setState, formData){
     try {
         const response = await fetch(`http://localhost:3000/items/${item._id}`, {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(formData)
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
         });
         const data = await response.json();
         const items = await getItems();
@@ -60,3 +60,5 @@ export async function deleteItem(id, setState){
         console.error(error)
     }
 }
+
+

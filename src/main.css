@@ -68,7 +68,7 @@ button:focus-visible {
 }
 
 .bg{
-  background-image: url(./images/images.jpeg);
+  background-image: url(../../images/images.jpeg);
   background-size: contain;
   background-repeat: no-repeat;
   height: 500px;

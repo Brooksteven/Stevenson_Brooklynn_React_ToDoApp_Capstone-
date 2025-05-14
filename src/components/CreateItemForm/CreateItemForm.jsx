@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { getItems, createItem } from '../../utilities/items-api';
+import { useNavigate } from 'react-router-dom';
 
 // import { CreateItemForm } from '../../utilities/items-api';
 
@@ -9,6 +10,7 @@ export default function CreateItemForm({ setItems }) {
         body: ''
     })
 
+    const navigate = useNavigate()
    
 
 
@@ -17,7 +19,7 @@ export default function CreateItemForm({ setItems }) {
         ...formData,
         // this selects the key to update dynamically i.e text: will target the value and body: will target the value we want to update which is .title and .body. this is how we change the state dynamically using setFormData to update the new state
         [e.target.name]: e.target.value
-    })
+    });
   }
 
  async function handleSubmit(e) {
@@ -38,7 +40,8 @@ export default function CreateItemForm({ setItems }) {
     // } catch (error) {
     //     console.error(error)
     // }
-    createItem(setItems, formData)
+    createItem(setItems, formData);
+    navigate('/home');
   }
 
 
@@ -46,7 +49,7 @@ export default function CreateItemForm({ setItems }) {
     <form onSubmit={handleSubmit}>
         <input type="text" placeholder='Enter Your Kiazen Title' name='title' value={formData.title} onChange={handleChange}/>
         <input type="text" placeholder='Enter Kiazen' name='body' value={formData.body} onChange={handleChange}/>
-        <input type="submit" />
+        <input type="submit"/>
     </form>
   );
 }

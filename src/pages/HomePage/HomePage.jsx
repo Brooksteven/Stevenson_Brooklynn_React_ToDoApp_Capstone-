@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react'
 import { getItems } from '../../utilities/items-api.js'
 import CreateItemForm from '../../components/CreateItemForm/CreateItemForm';
 import ItemList from '../../components/ItemList/ItemList';
-import Navbar from '../../components/Navbar/Navbar.jsx'
+import Navbar from '../../components/Navbar/Navbar.jsx';
+import Footer from '../../components/Footer/Footer.jsx'
 
 export default function HomePage() {
     const [items, setItems] = useState(null)
@@ -26,6 +27,7 @@ export default function HomePage() {
         {/* we are then passing setItems aka setter function as a prop from the form so when the data gets created in CreateItemForm we will then be able to update the items, by using setItems(items), to have all of the items from the database, by updating state it will trigger a re-render and that item gets dynamically added to the dom   */}
         {/* <CreateItemForm setItems={setItems}/> */}
         {items && <ItemList setItems={setItems} items={items}/>}
+        <Footer />
 
     </div>
   )

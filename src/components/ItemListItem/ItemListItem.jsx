@@ -20,11 +20,15 @@ export default function ItemListItem({ item, setItems }) {
 
 
   return (
-    <div>
+    <div className="item">
+      <div>
         <h2>{item.title}</h2>
         <p>{item.body}</p>
-        <button onClick={() => {nav(`/edit/${item._id}`)}}>Edit</button>
-        <button onClick={deleteTheItem}>Delete</button>
+      </div>
+      <div className="item-btn-design">
+        <button className="item-btn" onClick={() => {nav(`/edit/${item._id}`)}}>Edit</button>
+        <button className="item-btn" onClick={deleteTheItem}>Delete</button>
+      </div>
     </div>
   );
 }

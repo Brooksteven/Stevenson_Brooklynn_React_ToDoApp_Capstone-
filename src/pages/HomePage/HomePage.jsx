@@ -24,7 +24,7 @@ export default function HomePage() {
         <Navbar />
         {/* //here we are passing down the setter function which is setItems down to CreateItemForm so we could trigger a rerender by updating state */}
         {/* we are then passing setItems aka setter function as a prop from the form so when the data gets created in CreateItemForm we will then be able to update the items, by using setItems(items), to have all of the items from the database, by updating state it will trigger a re-render and that item gets dynamically added to the dom   */}
-        <CreateItemForm setItems={setItems}/>
+        {/* <CreateItemForm setItems={setItems}/> */}
         {items && <ItemList setItems={setItems} items={items}/>}
 
     </div>

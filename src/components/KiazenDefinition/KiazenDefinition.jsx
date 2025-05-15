@@ -2,13 +2,13 @@ import React from 'react'
 
 export default function KiazenDefinition() {
   return (
-    <div>
+    <div className="definition">
         <h1>KAI·ZEN</h1>
     
-        <h2>/ˈkīz(ə)n,ˈkīˌzen/</h2>
-        <p>Kaizen is a term that refers to on-going or continuous improvement. <br />
-        The definition of kaizen comes from two Japanese words: ‘kai’ meaning ‘change’ and ‘zen’ meaning ‘good’. <br />
-        Here at Kaizen, constantly improve you life by nocking out task and multi-tasking with quality. <br /></p>
+        <h2 className="definition__title">/ˈkīz(ə)n,ˈkīˌzen/</h2>
+        <p className="deinition__text">"Kaizen" is a Japanese term that means continuous improvement. <br />
+        It combines two words: Kai, meaning "change", and Zen, meaning "good". <br />
+        At Kaizen, we believe in steadily improving your life by tackling tasks efficiently and mastering the art of quality multitasking. <br /></p>
     </div>
   )
 }

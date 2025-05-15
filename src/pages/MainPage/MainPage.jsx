@@ -4,6 +4,7 @@ import HeroSection from '../../components/HeroSection/HeroSection.jsx'
 import KiazenDefinition from '../../components/KiazenDefinition/KiazenDefinition.jsx'
 import Footer from '../../components/Footer/Footer.jsx'
 import { useNavigate } from 'react-router-dom'
+import KaizenBtn from '../../components/KaizenBtn/KaizenBtn.jsx'
 
 export default function MainPage() {
 
@@ -14,7 +15,7 @@ export default function MainPage() {
         <Navbar />
         <HeroSection />
         <KiazenDefinition />
-        <button onClick={() => {nav('/home')}}>GET STARTED</button>
+        <KaizenBtn />
         <Footer />
     </div>
   )

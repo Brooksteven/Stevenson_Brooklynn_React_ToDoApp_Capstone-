@@ -36,9 +36,9 @@ export default function EditItemForm({ }) {
     <>
     {item ? (
       <form onSubmit={handleSubmit}>
-      <input type="text" name="title" placeholder="Edit Kiazen Title" value={item.title} onChange={handleChange}/>
+      <input  type="text" name="title" placeholder="Edit Kiazen Title" value={item.title} onChange={handleChange}/>
       <input type="text" name="body" placeholder="Edit Kiazen" value={item.body} onChange={handleChange}/>
-      <input type="submit" value="Update" />
+      <input className="item-btn__update" type="submit" value="Update" />
     </form>
     ) : (
       <h1>...Loading</h1>

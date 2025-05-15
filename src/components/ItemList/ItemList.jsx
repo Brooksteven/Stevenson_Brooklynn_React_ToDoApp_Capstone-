@@ -6,6 +6,8 @@ import FlowerImg from '../../assets/transparent-flower.jpeg'
 export default function ItemList({ items, setItems }) {
   return (
     <div className="itemlist">
+      <h1 >Tasuku Risuto</h1>
+      <hr />
       {/* <div className='main'>
         <div className="overlay"></div>
         <img src={FlowerImg} alt="" />

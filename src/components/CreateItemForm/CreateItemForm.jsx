@@ -47,6 +47,7 @@ export default function CreateItemForm({ setItems }) {
 
   return (
     <form onSubmit={handleSubmit}>
+        <h2 className="edit__title">Big Change Starts With One Small Task</h2>
         <input type="text" placeholder='Enter Your Kiazen Title' name='title' value={formData.title} onChange={handleChange}/>
         <input type="text" placeholder='Enter Kiazen' name='body' value={formData.body} onChange={handleChange}/>
         <input className="item-btn__update" type="submit" value="Create"/>

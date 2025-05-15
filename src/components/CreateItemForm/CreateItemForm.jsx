@@ -49,7 +49,7 @@ export default function CreateItemForm({ setItems }) {
     <form onSubmit={handleSubmit}>
         <input type="text" placeholder='Enter Your Kiazen Title' name='title' value={formData.title} onChange={handleChange}/>
         <input type="text" placeholder='Enter Kiazen' name='body' value={formData.body} onChange={handleChange}/>
-        <input type="submit"/>
+        <input className="item-btn__update" type="submit" value="Create"/>
     </form>
   );
 }

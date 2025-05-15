@@ -8,6 +8,16 @@ export async function getItems(){
     }
   }
 
+  export async function getItem(id, setItem){
+    try {
+        const response = await fetch(`http://localhost:3000/items/${id}`);
+        const data = await response.json(); //pull the data out of the response that we got 
+        setItem(data) //here we are updating state
+    } catch (error) {
+        console.error(error)
+    }
+  }
+
   export async function createItem(setState, formData){
     try {
         const response = await fetch('http://localhost:3000/items', {
@@ -27,16 +37,16 @@ export async function getItems(){
   }
 
 
-  export async function editItem(id, setState, formData){
+  export async function editItem(id, formData){
     try {
-        const response = await fetch(`http://localhost:3000/items/${item._id}`, {
+        const response = await fetch(`http://localhost:3000/items/${id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData)
         });
         const data = await response.json();
-        const items = await getItems();
-        setState(items);
+        // const items = await getItems();
+        // setState(items);
         console.log("Updated item:", data);
       } catch (error) {
         console.error("Error updating item:", error);

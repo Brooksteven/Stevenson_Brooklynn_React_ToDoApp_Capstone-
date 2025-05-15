@@ -7,7 +7,7 @@ export default function ItemListItem({ item, setItems }) {
 
     const nav = useNavigate()
     // const [item, setItem] = useState({})
-    const {id} = useParams()
+    // const {id} = useParams()
 
     // useEffect(() => {
     //     getItem(id)
@@ -18,11 +18,12 @@ export default function ItemListItem({ item, setItems }) {
         deleteItem(item._id, setItems)
     }
 
+
   return (
     <div>
         <h2>{item.title}</h2>
         <p>{item.body}</p>
-        <button onClick={() => {nav(`/edit/${id}`)}}>Edit</button>
+        <button onClick={() => {nav(`/edit/${item._id}`)}}>Edit</button>
         <button onClick={deleteTheItem}>Delete</button>
     </div>
   );

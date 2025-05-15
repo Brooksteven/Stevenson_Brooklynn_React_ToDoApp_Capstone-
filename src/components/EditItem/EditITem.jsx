@@ -1,42 +1,48 @@
-import { useState } from 'react';
-import { getItems, editItem } from '../../utilities/items-api';
+import { useState, useEffect } from 'react';
+import { getItem, editItem } from '../../utilities/items-api';
+import { useParams, useNavigate } from 'react-router-dom';
 
-export default function EditItemForm({ item, setItems }) {
-  const [formData, setFormData] = useState({
-    title: '',
-    body: ''
-  });
+export default function EditItemForm({ }) {
+  const [item, setItem] = useState(null); //null because the item/id doesn't exist yet
+
+  const {id} = useParams() //this comes from the url
+
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    getItem(id, setItem)
+  }, []) //without [] we would call useEffect 
 
   function handleChange(e) {
-    setFormData({
-      ...formData,
+    setItem({
+      ...item, //we spread this out to create a copy of state and we need everything in the existing state so 
       [e.target.name]: e.target.value
-    });
+    }); 
+    console.log(e.target.name)
+    console.log(e.target.value)
   }
 
   async function handleSubmit(e) {
     e.preventDefault();
-    // try {
-    //   const response = await fetch(`http://localhost:3000/items/${item._id}`, {
-    //     method: 'PUT',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     body: JSON.stringify(formData)
-    //   });
-    //   const updatedItem = await response.json();
-    //   const items = await getItems();
-    //   setItems(items);
-    //   console.log("Updated item:", updatedItem);
-    // } catch (error) {
-    //   console.error("Error updating item:", error);
-    // }
-    editItem(setItems, formData)
+    editItem(id, item)
+    navigate('/home')
   }
 
+//   const editTheItem = () => {
+//     editItem(item._id, item)
+// }
+
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" name="title" placeholder="Edit Kiazen Title" value={formData.title} onChange={handleChange}/>
-      <input type="text" name="body" placeholder="Edit Kiazen" value={formData.body} onChange={handleChange}/>
+    <>
+    {item ? (
+      <form onSubmit={handleSubmit}>
+      <input type="text" name="title" placeholder="Edit Kiazen Title" value={item.title} onChange={handleChange}/>
+      <input type="text" name="body" placeholder="Edit Kiazen" value={item.body} onChange={handleChange}/>
       <input type="submit" value="Update" />
     </form>
+    ) : (
+      <h1>...Loading</h1>
+    )}
+    </>
   );
 }

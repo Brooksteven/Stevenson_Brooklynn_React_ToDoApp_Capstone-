@@ -327,8 +327,13 @@ nav ul li{
 }
 
 .item{
-  display: flex;
+  /* display: flex; */
+  text-align: center;
 
+}
+
+.itemlist{
+  text-align: center;
 }
 
 .item-btn-design{

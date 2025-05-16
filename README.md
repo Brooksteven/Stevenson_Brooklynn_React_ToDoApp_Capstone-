@@ -1,4 +1,4 @@
-# 📝 KAIZEN Full Stack ToDo App 
+# 📝 KAIZEN ToDo App - Frontend
 
 ## 📖 Project Info
 

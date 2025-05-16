@@ -85,7 +85,7 @@ No external API keys are required. All functionality uses the custom backend.
 - Fruits App
 - Bryan Santos Office Hours
 - [How to Create a Video Background Component in React JS](https://www.youtube.com/watch?v=LSRNmhLS76o)
-- (Past Project)[Protect Security App]
+- Past Projects
 
 ---
 
